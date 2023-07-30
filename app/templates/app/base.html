@@ -16,6 +16,16 @@
 <body>
     <div class="container">
         <h1>Django study</h1>
+        
+        {% if user.is_authenticated %}
+            {#user.is authenticated 속성은 로그인 여부를 t/f 값으로 반환#}
+            <p>
+                logged by {{ user }}
+                <a href="/accounts/logout/">Logout</a>
+            </p>
+        {% else %}
+            <a href="/accounts/login/">Login</a>
+        {% endif %}
 
         {% block content %}
         {% endblock %}
